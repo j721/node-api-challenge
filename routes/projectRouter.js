@@ -68,6 +68,8 @@ router.delete('/:id', (req,res)=>{
     })
 })
 
+module.exports = router; 
+
 //custom middleware
 
 // function validateProjectId(){
