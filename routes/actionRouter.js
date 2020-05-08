@@ -50,7 +50,7 @@ router.post('/', (req,res)=>{
     })
 })
 
-router.put('/', (req,res)=>{
+router.put('/:id', (req,res)=>{
     actions.update(req.params.id, req.body)
     .then((project)=>{
         res.status(200).json(project)
