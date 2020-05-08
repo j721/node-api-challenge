@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Route } from "react-router-dom";
 import axios from "axios";
 
-import Projects from "../components/Projects";
-import Project from "../components/Project";
+import Projects from "./components/Projects";
+import Project from "./components/Project";
 
 import './App.css';
 
@@ -28,7 +28,7 @@ function App() {
         })}
         </div>
       </Route>
-              
+
         <Route exact path ="/project/:id">
           <Project data ={data}/>
         </Route>
