@@ -70,23 +70,23 @@ router.delete('/:id', (req,res)=>{
 
 module.exports = router; 
 
-//custom middleware
+// custom middleware
 
-// function validateProjectId(){
-//     return (req,res,next)=>{
-//        if(req.params.id){
-//         projects.get(req.params.id)
-//         .then((project)=>{
-//             if(project){
-//                 req.project = project;
-//                 next();
-//             }else{
-//                 res.status(400).json({message: "sorry, project not found."})
-//             }
-//         })
-//         .catch((err)=>{
-//             next(err);
-//         })
-//        }
-//     }
-// }
+function validateProjectId(){
+    return (req,res,next)=>{
+       if(req.params.id){
+        projects.get(req.params.id)
+        .then((project)=>{
+            if(project){
+                req.project = project;
+                next();
+            }else{
+                res.status(400).json({message: "sorry, project not found."})
+            }
+        })
+        .catch((err)=>{
+            next(err);
+        })
+       }
+    }
+}
