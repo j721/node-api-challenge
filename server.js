@@ -1,14 +1,14 @@
 const express = require('express');
 const server = express();
-server.use(express.json());
+// server.use(express.json());
 
 const projectRouter = require('./routes/projectRouter');
 const actionRouter = require('./routes/actionRouter');
 
+server.use(express.json());
 server.use('/api/project', projectRouter);
 server.use('/api/action', actionRouter);
 
-server.use(express.json());
 
 server.get('/', (req, res) => {
   res.send(`<h2>Actions and Projects!</h2>`);
