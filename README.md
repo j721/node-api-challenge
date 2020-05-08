@@ -40,13 +40,36 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+    * express is a Node.js framework that makes it easier to create web applications and services
+    * Express is able to serve Single Page Applications
+    * it is compatible with connect middleware
+    * it is simple, unopinionated, extensible, and light-weight framework
+    * express application publishes a set of methods we can use to configure functions (i.e. CRUD)
+
+
 - [ ] Describe Middleware?
+
+    * are functions that can get the request and response objects, operate on them, and when specified can trigger some action
+    * an array of functions that get executed in the order they are introduced into the server code.
+
 
 - [ ] Describe a Resource?
 
+    * A Resource in Restful api is any type of data. Each rescue is accessible via a unique URL. Resources can have multiple representations. 
+    * Resource management happens via HTTP methods. communication happens over a stateless	 protocol (HTTP).
+
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+    * it can return a status of success, such as a status(200) and a message of success to the client
+    * send a status of error and an error message, if request was unsuccessful
+
+
 - [ ] How can we partition our application into sub-applications?
+
+    * with the use of Express Routers- it behaves as its own mini Express application with it’s own Routing and Middleware
+    * the express router can be used to handle different endpoints and Routers can be used to handle different 
+
 
 ## Minimum Viable Product
 
