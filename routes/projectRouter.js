@@ -61,7 +61,7 @@ router.put('/:id', (req,res)=>{
 router.delete('/:id', (req,res)=>{
     projects.remove(req.params.id)
     .then((project)=>{
-        res.status(200).json(project)
+        res.status(200).json( `project with id of ${req.params.id} has been removed`)
     })
     .catch((error)=>{
         res.status(500).json({error: "failed to remove project."})

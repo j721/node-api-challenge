@@ -33,7 +33,7 @@ router.post('/', (req,res)=>{
     projects.get(project_id)
     .then((project)=>{
         if(project){
-            if(body.description && body.notes){
+            if(body.description && body.notes && body.project_id){
                 actions.insert(body)
                 .then((action)=>{
                     res.status(201).json(action)
@@ -64,7 +64,7 @@ router.put('/:id', (req,res)=>{
 router.delete('/:id', (req,res)=>{
     actions.remove(req.params.id)
     .then((project)=>{
-        res.status(200).json(project)
+        res.status(200).json( `project with id of ${req.params.id} has been removed`)
     })
     .catch((error)=>{
         res.status(500).json({error: "unable to remove actions."})

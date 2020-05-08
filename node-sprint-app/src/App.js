@@ -14,7 +14,7 @@ function App() {
     axios.get("http://localhost:6000/api/project")
     .then((res)=>{
       console.log(res, 'data returned')
-      setData(res.data)
+      setData(res.data.data)
     })
   },[])
 

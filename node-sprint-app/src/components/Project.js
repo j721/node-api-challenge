@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-const Project =({data}=>{
+const Project =({data}) => {
     const {id} = useParams();
     const { name, description, completed }= obj;
     const obj = data.find((project)=>project.id === Number (id));
