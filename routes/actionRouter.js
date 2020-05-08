@@ -4,13 +4,25 @@ const router = express.Router();
 const actions = require('../data/helpers/actionModel');
 const projects = require('../data/helpers/projectModel');
 
+
+router.get('/', (req, res)=>{
+    actions.get()
+    .then((action)=>{
+        res.status(200).json(action)
+    })
+    .catch((error)=>{
+        res.status(500).json({error: "unable to get actions"})
+    })
+})
+
+
 router.get('/:id', (req, res)=>{
     actions.get(req.params.id)
     .then((action)=>{
         res.status(200).json(action)
     })
     .catch((error)=>{
-        res.status(500).json({error: "unable to get actions"})
+        res.status(500).json({error: "unable to get actions by id."})
     })
 })
 
