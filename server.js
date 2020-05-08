@@ -1,7 +1,7 @@
 const express = require('express');
 
-const projectRouter = require('./posts/projectRouter');
-const actionRouter = require('./users/actionRouter');
+const projectRouter = require('./routes/projectRouter');
+const actionRouter = require('./routes/actionRouter');
 
 /*const cors = require('cors')
   server.use(cors());
