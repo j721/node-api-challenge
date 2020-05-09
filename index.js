@@ -15,6 +15,7 @@ Go code!
 
 const express = require('express');
 const server = require('./server');
+const cors = require('cors');
 
 const port = process.env.PORT || 6000;
 
