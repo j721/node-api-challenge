@@ -47,6 +47,7 @@ import axios from "axios";
 
 
 function App() {
+
 const deleteProject = (e, projectId) => {
   e.preventDefault()
   axios
@@ -56,8 +57,8 @@ const deleteProject = (e, projectId) => {
   .catch(err => console.log(err))
 }
 
-
 const [projects, setProjects] = useState([]);
+
 
   const getProjects = () => {
    axios.get("http://localhost:8000/api/project")
@@ -98,10 +99,12 @@ const handleChange = (e) => {
 
   return (
     <div className="App">
+      <div className="card-holder">
       {projects && projects.map(project => <> 
       <p>{project.name}</p> <p>{project.description}</p> 
       <button onClick={e => deleteProject(e, project.id) }>Delete Project</button> 
       </>)}
+      </div>
     <form>
     <label htmlFor="name">
           <input
