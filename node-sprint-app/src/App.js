@@ -43,27 +43,27 @@
 
 
 import React, {useState, useEffect} from 'react';
-import './App.css';
-import axios from "axios"
+import axios from "axios";
 
 
 function App() {
 const deleteProject = (e, projectId) => {
   e.preventDefault()
   axios
-  .delete(`http://localhost:6000/api/project/${projectId}`)
+  .delete(`http://localhost:8000/api/project/${projectId}`)
   .then(res => getProjects())
   //deletes and then update list
   .catch(err => console.log(err))
 }
 
- const getProjects = () => {
-  axios.get("http://localhost:6000/api/project")
-  .then(res => setProjects(res.data))
-  .catch(err => console.log(err))
- }
 
-const [project, setProjects] = useState();
+const [projects, setProjects] = useState([]);
+
+  const getProjects = () => {
+   axios.get("http://localhost:8000/api/project")
+   .then(res => setProjects(res.data))
+   .catch(err => console.log(err))
+  }
 
 useEffect(() => {
   getProjects()
@@ -79,8 +79,10 @@ const [formState, setFormState] = useState(emptyForm);
 const handleSubmit = (e) => {
   e.preventDefault();
   axios
-  .post("http://localhost:6000/api/project", formState)
-  .then(res => getProjects())
+  .post("http://localhost:8000/api/project", formState)
+  .then(res =>  
+    {setProjects(res)
+    getProjects()})
   .catch(err => console.log(err))
   setFormState(emptyForm);
 };
@@ -96,7 +98,10 @@ const handleChange = (e) => {
 
   return (
     <div className="App">
-      {project && project.map(projects => <> <p>{projects.name}</p> <p>{projects.description}</p> <button onClick={e => deleteProject(e, projects.id) }>Delete Project</button> </>)}
+      {projects && projects.map(project => <> 
+      <p>{project.name}</p> <p>{project.description}</p> 
+      <button onClick={e => deleteProject(e, project.id) }>Delete Project</button> 
+      </>)}
     <form>
     <label htmlFor="name">
           <input
